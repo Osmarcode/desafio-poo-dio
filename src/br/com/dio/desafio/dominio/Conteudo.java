@@ -5,7 +5,7 @@ package br.com.dio.desafio.dominio;
 //para que o código não fique repetido
 //então as outras apenas irão herdar
 public abstract class Conteudo {
-    //final representra uma constante
+    //final representa uma constante
     //static o atributo pode ser acessado
     // fora dessa classe
     //protected só pode ser acessado
