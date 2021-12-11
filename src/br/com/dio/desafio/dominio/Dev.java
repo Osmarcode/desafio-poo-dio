@@ -15,12 +15,14 @@ public class Dev {
         //na regra de negócio quando se inscreve recebe o conteudo Inscritos
         this.conteudosInscritos.addAll(bootcamp.getConteudos());//está addicionando tudo de bootcamp em conteInscri..
         bootcamp.getDevsInscritos().add(this);//depois adicionei tudo aos devsinscritos
+        //esse dev foi adicionado ao bootcamp que foi adicionado como argumneto
     }
 
     //pega o conteudo de inscritos e adiciona conteudos concluidos
+    //regra quando se progride no bootcamp
     public void progredir(){
         Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
-        if(conteudo.isPresent()){
+        if(conteudo.isPresent()){ //se o conteudo existe
             this.conteudosConcluidos.add(conteudo.get());
             this.conteudosInscritos.remove(conteudo.get());
         } else {
@@ -28,7 +30,7 @@ public class Dev {
         }
     }
 
-    public double calcularTotalXp(){
+    public double calcularTotalXp(){ //utilizou streamAPI
         return this.conteudosConcluidos
                 .stream()
                 .mapToDouble(Conteudo::calcularXp)
